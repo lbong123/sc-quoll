@@ -1,27 +1,12 @@
-import React, { useState } from "react";
 import { Button } from "@mui/material";
-import { signOut } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
-import { auth } from "../../config/firebase";
+import FirebaseAuthHookService from '../../hooks/FirebaseAuthHookService';
 
-const Logout = ({ navigateTo = "/login" }) => {
-  const [disabled, setDisabled] = useState(false);
-  const navigate = useNavigate();
-  const logout = () => {
-    setDisabled(true);
-    signOut(auth)
-      .then(() => {
-        navigate(navigateTo);
-      })
-      .catch((error) => {
-        console.error(error);
-        setDisabled(false);
-      });
-  };
+const Logout = () => {
+  const { disabled, signOutWithGoogle } = FirebaseAuthHookService();
 
   return (
     <div>
-      <Button disabled={disabled} onClick={logout}>
+      <Button disabled={disabled} onClick={signOutWithGoogle}>
         Logout
       </Button>
     </div>

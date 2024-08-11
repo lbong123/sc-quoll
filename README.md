@@ -48,7 +48,6 @@ This section lists any major frameworks/libraries that have been used to bootstr
 ![confluence-logo] <br>
 ![jira-logo] <br>
 ![firebase-logo] <br>
-![docker-logo] <br>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
