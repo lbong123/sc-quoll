@@ -8,6 +8,7 @@ const FirebaseAuthHookService = () => {
     const navigate = useNavigate();
     const [errorMessage, setErrorMessage] = useState("");
     const [disabled, setDisabled] = useState(false);
+    const [roles, setRoles] = useState(null);
 
     const signInWithGoogle = () => {
         setDisabled(true);
@@ -34,8 +35,20 @@ const FirebaseAuthHookService = () => {
             setDisabled(false);
           });
       };
+
+      const getRoles = () => {
+        setDisabled(true);
+        signOut(auth)
+          .then(() => {
+            navigate("/login");
+          })
+          .catch((error) => {
+            console.error(error);
+            setDisabled(false);
+          });
+      };
       
-    return { disabled, errorMessage, signInWithGoogle, signOutWithGoogle };
+    return { auth, disabled, errorMessage, signInWithGoogle, signOutWithGoogle, getRoles };
   };
   
 export default FirebaseAuthHookService;

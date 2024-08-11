@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { auth } from "../../config/firebase";
+import FirebaseAuthHookService from '../../hooks/FirebaseAuthHookService';
 
 const AuthChecker = ({ children }) => {
   const navigate = useNavigate();
+  const { auth } = FirebaseAuthHookService()
 
   useEffect(() => {
     if (!auth.currentUser) {
