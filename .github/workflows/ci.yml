@@ -32,6 +32,8 @@ jobs:
 
     - name: Deploy
       run: |
+        git config --global user.email "bong@outlook.com"
+        git config --global user.name "lbong123"
         git remote set-url origin https://${github_token}@github.com/${repository}
         npm run deploy --prefix ruby
       env:
