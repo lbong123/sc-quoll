@@ -1,5 +1,6 @@
 import Avatar from '@mui/material/Avatar';
 import AvatarGroup from '@mui/material/AvatarGroup';
+import FirebaseUserHookService from '../../hooks/FirebaseUserHookService';
 
 const accounts = [
     { name: 'Account 1', avatarUrl: 'https://example.com/avatar1.jpg' },
@@ -9,13 +10,15 @@ const accounts = [
   ];
   
 const AccountAvatars = () => {
-return (
-    <AvatarGroup max={4}>
-    {accounts.map((account, index) => (
-        <Avatar key={index} alt={account.name} src={account.avatarUrl} />
-    ))}
-    </AvatarGroup>
-);
+    const { getUserData } = FirebaseUserHookService();
+
+    return (
+        <AvatarGroup max={4}>
+        {accounts.map((account, index) => (
+            <Avatar key={index} alt={account.name} src={account.avatarUrl} onClick={getUserData}/>
+        ))}
+        </AvatarGroup>
+    );
 };
 
 export default AccountAvatars;
