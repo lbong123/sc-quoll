@@ -7,7 +7,7 @@
     <img src="https://cdn.freebiesupply.com/logos/large/2x/the-university-of-melbourne-logo-png-transparent.png" alt="Logo" width="150" height="150">
   </a>
 
-  <h3 align="center">Student Competencies With Ruby - Quoll Team</h3>
+  <h3 align="center">Student Competencies With Ruby - Quoll Team </h3>
 </div>
 
 <!-- TABLE OF CONTENTS -->
